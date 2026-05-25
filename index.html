@@ -3,179 +3,857 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winso Wallet- Privacy Policy</title>
+    <title>Winso Wallet — Privacy Policy & Terms</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --ink:       #0d0f14;
+            --ink-mid:   #3a3d47;
+            --ink-light: #717585;
+            --rule:      #e2e4ea;
+            --accent:    #1a3cff;
+            --accent-soft: #eef1ff;
+            --bg:        #f9f9fb;
+            --white:     #ffffff;
+            --radius:    4px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--ink-mid);
+            background: var(--bg);
+        }
+
+        /* ── Header ── */
+        header {
+            background: var(--ink);
+            color: var(--white);
+            padding: 64px 40px 52px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 40px,
+                rgba(255,255,255,.025) 40px,
+                rgba(255,255,255,.025) 41px
+            );
+        }
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 100px;
+            padding: 6px 16px;
+            font-size: 12px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.7);
+            margin-bottom: 28px;
+            position: relative;
+        }
+        .header-badge span.dot {
+            width: 6px; height: 6px;
+            background: #4ade80;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(38px, 6vw, 62px);
+            font-weight: 300;
+            letter-spacing: -.02em;
+            line-height: 1.1;
+            color: var(--white);
+            position: relative;
+            margin-bottom: 20px;
+        }
+        header h1 em {
+            font-style: italic;
+            color: rgba(255,255,255,.55);
+        }
+        .header-meta {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            position: relative;
+            margin-top: 8px;
+        }
+        .header-meta span {
+            font-size: 13px;
+            color: rgba(255,255,255,.5);
+            letter-spacing: .04em;
+        }
+        .header-meta strong {
+            color: rgba(255,255,255,.85);
+            font-weight: 500;
+        }
+
+        /* ── Layout ── */
+        .page-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 56px;
+            align-items: start;
+        }
+
+        /* ── Sidebar nav ── */
+        .sidebar {
+            position: sticky;
+            top: 32px;
+        }
+        .sidebar-label {
+            font-size: 10px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            margin-bottom: 16px;
+            padding-left: 16px;
+        }
+        nav ul { list-style: none; }
+        nav ul li + li { margin-top: 2px; }
+        nav ul li a {
+            display: block;
+            padding: 7px 16px;
+            font-size: 13.5px;
+            color: var(--ink-light);
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all .2s;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--accent);
+            border-left-color: var(--accent);
+            background: var(--accent-soft);
+        }
+        .nav-divider {
+            height: 1px;
+            background: var(--rule);
+            margin: 16px 16px;
+        }
+
+        /* ── Document content ── */
+        .doc-section {
+            background: var(--white);
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            padding: 48px 52px;
+            margin-bottom: 24px;
+            animation: fadeUp .4s ease both;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .doc-section:nth-child(2) { animation-delay: .06s; }
+        .doc-section:nth-child(3) { animation-delay: .12s; }
+        .doc-section:nth-child(4) { animation-delay: .18s; }
+        .doc-section:nth-child(5) { animation-delay: .22s; }
+
+        .section-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 14px;
+        }
+        .section-eyebrow::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--accent-soft);
+        }
+
+        .doc-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--ink);
+            letter-spacing: -.01em;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .doc-section h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--ink);
+            margin: 28px 0 10px;
+        }
+
+        .doc-section p {
+            color: var(--ink-mid);
+            margin-bottom: 16px;
+        }
+
+        /* ── Info cards grid ── */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+        .info-card {
+            background: var(--bg);
+            border: 1px solid var(--rule);
+            border-radius: 6px;
+            padding: 16px 18px;
+        }
+        .info-card .card-icon {
+            font-size: 20px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .info-card p {
+            font-size: 13.5px;
+            color: var(--ink-mid);
             margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
-            color: #333;
+            line-height: 1.5;
         }
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+        /* ── List styles ── */
+        .policy-list {
+            list-style: none;
+            margin: 16px 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
-        h1, h2, h3 {
-            color: #222;
+        .policy-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14.5px;
+            color: var(--ink-mid);
+            line-height: 1.6;
         }
-        h1 {
-            text-align: center;
+        .policy-list li::before {
+            content: '';
+            flex-shrink: 0;
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin-top: 8px;
         }
-        .meta {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #666;
-        }
-        a {
-            color: #0066cc;
-        }
-        ul {
-            margin-left: 20px;
-        }
-        .footer {
-            margin-top: 40px;
+
+        /* ── Highlight box ── */
+        .highlight-box {
+            background: var(--accent-soft);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 6px 6px 0;
+            padding: 16px 20px;
+            margin: 20px 0;
             font-size: 14px;
-            color: #777;
+            color: var(--ink-mid);
+        }
+
+        /* ── Third-party pills ── */
+        .pill-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 16px 0;
+        }
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--bg);
+            border: 1px solid var(--rule);
+            border-radius: 100px;
+            padding: 6px 14px;
+            font-size: 13px;
+            color: var(--ink-mid);
+            font-weight: 500;
+        }
+        .pill .pill-icon { font-size: 15px; }
+
+        /* ── Contact link ── */
+        a.contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            border-bottom: 1px solid var(--accent-soft);
+            padding-bottom: 1px;
+            transition: border-color .2s;
+        }
+        a.contact-link:hover { border-color: var(--accent); }
+
+        /* ── Rights row ── */
+        .rights-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+        .right-item {
+            background: var(--bg);
+            border: 1px solid var(--rule);
+            border-radius: 6px;
+            padding: 14px 16px;
+            font-size: 13.5px;
+            color: var(--ink-mid);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .right-item .ri { font-size: 18px; }
+
+        /* ── Terms section ── */
+        .terms-header {
+            background: var(--ink);
+            color: var(--white);
+            border-radius: 8px;
+            padding: 36px 52px;
+            margin-bottom: 24px;
+        }
+        .terms-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 300;
+            color: var(--white);
+            letter-spacing: -.02em;
+        }
+        .terms-header p {
+            color: rgba(255,255,255,.55);
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--ink);
+            color: rgba(255,255,255,.4);
             text-align: center;
+            font-size: 13px;
+            padding: 32px 24px;
+            letter-spacing: .03em;
+        }
+        footer strong { color: rgba(255,255,255,.75); }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .page-wrap {
+                grid-template-columns: 1fr;
+                gap: 0;
+                padding: 32px 16px 60px;
+            }
+            .sidebar { display: none; }
+            .doc-section { padding: 32px 24px; }
+            .terms-header { padding: 28px 24px; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-
-    <h1>Privacy Policy</h1>
-    <div class="meta">
-        <p><strong>App Name:</strong> Winso Wallet</p>
-        <p><strong>Effective Date:</strong> May 25, 2026</p>
+<!-- ── Header ── -->
+<header>
+    <div class="header-badge">
+        <span class="dot"></span>
+        Legal Documents
     </div>
-
-    <h2>1. Introduction</h2>
-    <p>
-        This Privacy Policy describes how Winso Wallet ("we", "our", or "us") collects, uses,
-        and protects user information when you use our mobile application.
-    </p>
-
-    <h2>2. Information We Collect</h2>
-
-    <h3>Personal Information</h3>
-    <ul>
-        <li>Username</li>
-        <li>Email address</li>
-    </ul>
-
-    <h3>Account Information</h3>
-    <ul>
-        <li>Login credentials (securely handled)</li>
-    </ul>
-
-    <h3>Financial / Payment Information</h3>
-    <ul>
-        <li>Payments processed via Google Pay and Apple Pay</li>
-        <li>We do not store card or banking details</li>
-    </ul>
-
-    <h3>Device & Usage Data</h3>
-    <ul>
-        <li>Device type</li>
-        <li>Operating system</li>
-        <li>App usage and performance data</li>
-    </ul>
-
-    <h2>3. How We Use Information</h2>
-    <ul>
-        <li>To create and manage user accounts</li>
-        <li>To process payments securely</li>
-        <li>To improve app performance</li>
-        <li>To fix bugs and enhance security</li>
-    </ul>
-
-    <h2>4. Third-Party Services</h2>
-    <ul>
-        <li>Google Pay</li>
-        <li>Apple Pay</li>
-    </ul>
-    <p>These services may collect data according to their own privacy policies.</p>
-
-    <h2>5. Advertising</h2>
-    <p>
-        Winso Wallet currently does not display advertisements.
-        Future updates may include advertising services such as AdMob.
-    </p>
-
-    <h2>6. Data Security</h2>
-    <p>
-        We take reasonable measures to protect your data, but no system is 100% secure.
-    </p>
-
-    <h2>7. Children's Privacy</h2>
-    <p>
-        Winso Wallet is available for users of all ages. We do not knowingly collect data from children under 13 without parental consent.
-    </p>
-
-    <h2>8. Data Retention</h2>
-    <p>
-        We retain data only as long as necessary for service operation, legal compliance, and security.
-    </p>
-
-    <h2>9. User Rights</h2>
-    <ul>
-        <li>Access personal data</li>
-        <li>Request correction or deletion</li>
-        <li>Withdraw consent where applicable</li>
-    </ul>
-    <p>Contact: <a href="mailto:leeward192@gmail.com">leeward192@gmail.com</a></p>
-
-    <h2>10. Changes to This Policy</h2>
-    <p>
-        We may update this Privacy Policy from time to time. Users will be notified of significant changes.
-    </p>
-
-    <h2>11. Contact Us</h2>
-    <p>
-        If you have any questions, contact us at:<br>
-        <a href="mailto:leeward192@gmail.com">leeward192@gmail.com</a>
-    </p>
-
-    <hr>
-
-    <h1>Terms & Conditions</h1>
-
-    <h2>1. Acceptance of Terms</h2>
-    <p>By using Winso Wallet, you agree to these terms.</p>
-
-    <h2>2. User Responsibilities</h2>
-    <ul>
-        <li>Use the app only for lawful purposes</li>
-        <li>Do not attempt to harm, hack, or misuse the app</li>
-    </ul>
-
-    <h2>3. Payments</h2>
-    <p>
-        Payments are handled securely by Google Pay and Apple Pay. We are not responsible for third-party payment failures.
-    </p>
-
-    <h2>4. Service Changes</h2>
-    <p>
-        We may modify or discontinue features at any time without prior notice.
-    </p>
-
-    <h2>5. Liability</h2>
-    <p>
-        We are not liable for damages arising from use of the app or third-party services.
-    </p>
-
-    <div class="footer">
-        <p>© 2026 Winso Wallet. All rights reserved.</p>
+    <h1>Privacy Policy <em>&</em><br>Terms of Service</h1>
+    <div class="header-meta">
+        <span><strong>App:</strong> Winso Wallet</span>
+        <span><strong>Version:</strong> 1.0</span>
+        <span><strong>Effective:</strong> May 25, 2026</span>
     </div>
+</header>
 
+<!-- ── Body ── -->
+<div class="page-wrap">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <p class="sidebar-label">Privacy Policy</p>
+        <nav>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#collection">Information We Collect</a></li>
+                <li><a href="#usage">How We Use Data</a></li>
+                <li><a href="#third-party">Third-Party Services &amp; SDKs</a></li>
+                <li><a href="#encryption">Encryption &amp; Security</a></li>
+                <li><a href="#advertising">Advertising</a></li>
+                <li><a href="#security">Data Security</a></li>
+                <li><a href="#account-deletion">Account &amp; Data Deletion</a></li>
+                <li><a href="#children">Children's Privacy</a></li>
+                <li><a href="#retention">Data Retention</a></li>
+                <li><a href="#rights">User Rights</a></li>
+                <li><a href="#data-safety">Google Play Data Safety</a></li>
+                <li><a href="#changes">Policy Changes</a></li>
+                <li><a href="#contact-pp">Contact</a></li>
+            </ul>
+            <div class="nav-divider"></div>
+            <p class="sidebar-label">Terms &amp; Conditions</p>
+            <ul>
+                <li><a href="#acceptance">Acceptance</a></li>
+                <li><a href="#responsibilities">User Responsibilities</a></li>
+                <li><a href="#payments">Payments</a></li>
+                <li><a href="#service-changes">Service Changes</a></li>
+                <li><a href="#liability">Liability</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main>
+
+        <!-- 1. Introduction -->
+        <section class="doc-section" id="introduction">
+            <div class="section-eyebrow">Section 01</div>
+            <h2>Introduction</h2>
+            <p>
+                This Privacy Policy describes how <strong>Winso Wallet</strong> ("we", "our", or "us") collects, uses,
+                and protects user information when you use our mobile application. We are committed to
+                handling your personal data with transparency, integrity, and respect for your privacy.
+            </p>
+            <div class="highlight-box">
+                By using Winso Wallet, you acknowledge that you have read and understood this Privacy Policy.
+            </div>
+        </section>
+
+        <!-- 2. Information We Collect -->
+        <section class="doc-section" id="collection">
+            <div class="section-eyebrow">Section 02</div>
+            <h2>Information We Collect</h2>
+
+            <h3>Personal Information</h3>
+            <div class="card-grid">
+                <div class="info-card">
+                    <span class="card-icon">👤</span>
+                    <p>Username</p>
+                </div>
+                <div class="info-card">
+                    <span class="card-icon">📧</span>
+                    <p>Email address</p>
+                </div>
+            </div>
+
+            <h3>Account Information</h3>
+            <ul class="policy-list">
+                <li>Login credentials (securely handled via industry-standard encryption)</li>
+            </ul>
+
+            <h3>Financial &amp; Payment Information</h3>
+            <ul class="policy-list">
+                <li>Payments processed securely via Google Pay and Apple Pay</li>
+                <li>We do <strong>not</strong> store card numbers or banking details on our servers</li>
+            </ul>
+
+            <h3>Device &amp; Usage Data</h3>
+            <div class="card-grid">
+                <div class="info-card">
+                    <span class="card-icon">📱</span>
+                    <p>Device type &amp; model</p>
+                </div>
+                <div class="info-card">
+                    <span class="card-icon">🖥️</span>
+                    <p>Operating system</p>
+                </div>
+                <div class="info-card">
+                    <span class="card-icon">📊</span>
+                    <p>App usage &amp; performance data</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. How We Use Information -->
+        <section class="doc-section" id="usage">
+            <div class="section-eyebrow">Section 03</div>
+            <h2>How We Use Information</h2>
+            <p>We use the data we collect strictly for the following purposes:</p>
+            <ul class="policy-list">
+                <li>To create and manage user accounts</li>
+                <li>To process payments securely through trusted payment gateways</li>
+                <li>To improve overall app performance and user experience</li>
+                <li>To diagnose bugs and strengthen application security</li>
+            </ul>
+            <p>We do not sell, rent, or trade your personal information to third parties.</p>
+        </section>
+
+        <!-- 4. Third-Party Services & SDKs -->
+        <section class="doc-section" id="third-party">
+            <div class="section-eyebrow">Section 04</div>
+            <h2>Third-Party Services &amp; SDKs</h2>
+            <p>Winso Wallet integrates with the following trusted third-party services. Each may independently collect and process data under their own privacy policies:</p>
+
+            <h3>Payment Processors</h3>
+            <div class="pill-row">
+                <span class="pill"><span class="pill-icon">🟢</span> Google Pay</span>
+                <span class="pill"><span class="pill-icon">🍎</span> Apple Pay</span>
+            </div>
+
+            <h3>Backend &amp; Infrastructure</h3>
+            <div class="pill-row">
+                <span class="pill"><span class="pill-icon">🔥</span> Firebase (Google LLC) — Authentication &amp; crash reporting</span>
+            </div>
+
+            <div class="highlight-box">
+                ⚠️ <strong>SDK Notice:</strong> Any third-party SDK integrated in Winso Wallet that collects or shares user data is disclosed here in compliance with Google Play's Data Safety requirements. We do not use advertising or tracking SDKs at this time.
+            </div>
+            <p>
+                We encourage you to review the privacy policies of these services. We are not responsible for their independent data practices.
+            </p>
+        </section>
+
+        <!-- 4b. Encryption in Transit -->
+        <section class="doc-section" id="encryption">
+            <div class="section-eyebrow">Section 04B · Google Play Required</div>
+            <h2>Encryption &amp; Data in Transit</h2>
+            <p>
+                All data transmitted between Winso Wallet and our servers is protected using
+                <strong>TLS (Transport Layer Security)</strong> encryption. This ensures that your personal
+                and financial data is secured during transmission and cannot be intercepted by unauthorized parties.
+            </p>
+            <div class="card-grid">
+                <div class="info-card">
+                    <span class="card-icon">🔒</span>
+                    <p><strong>TLS Encryption</strong><br>All network traffic encrypted in transit</p>
+                </div>
+                <div class="info-card">
+                    <span class="card-icon">🛡️</span>
+                    <p><strong>Secure Payments</strong><br>Payment data handled via tokenized, encrypted gateways</p>
+                </div>
+                <div class="info-card">
+                    <span class="card-icon">🔐</span>
+                    <p><strong>Stored Data</strong><br>Sensitive data encrypted at rest on our servers</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Advertising -->
+        <section class="doc-section" id="advertising">
+            <div class="section-eyebrow">Section 05</div>
+            <h2>Advertising</h2>
+            <p>
+                Winso Wallet currently does <strong>not</strong> display any advertisements to users.
+                Future versions of the app may incorporate advertising services such as Google AdMob.
+                Any such changes will be communicated through an updated Privacy Policy prior to implementation.
+            </p>
+        </section>
+
+        <!-- 6. Data Security -->
+        <section class="doc-section" id="security">
+            <div class="section-eyebrow">Section 06</div>
+            <h2>Data Security</h2>
+            <p>
+                We implement industry-standard technical and organizational measures to protect your data
+                against unauthorized access, alteration, disclosure, or destruction. However, no method of
+                transmission over the internet or electronic storage is 100% secure.
+            </p>
+            <div class="highlight-box">
+                We continuously review and improve our security practices to safeguard your information.
+            </div>
+        </section>
+
+        <!-- 6b. Account & Data Deletion — Google Play Required -->
+        <section class="doc-section" id="account-deletion">
+            <div class="section-eyebrow">Section 06B · Google Play Required</div>
+            <h2>Account &amp; Data Deletion</h2>
+            <p>
+                Google Play requires that apps offering user accounts provide a clear mechanism for users
+                to request deletion of their account and all associated personal data.
+            </p>
+
+            <h3>How to Delete Your Account</h3>
+            <ul class="policy-list">
+                <li><strong>In-App:</strong> Go to <em>Settings → Account → Delete Account</em> within Winso Wallet</li>
+                <li><strong>By Email:</strong> Send a deletion request to <a class="contact-link" href="mailto:leeward192@gmail.com">leeward192@gmail.com</a> with the subject line <em>"Account Deletion Request"</em></li>
+            </ul>
+
+            <h3>What Gets Deleted</h3>
+            <div class="card-grid">
+                <div class="info-card">
+                    <span class="card-icon">👤</span>
+                    <p>Profile &amp; account credentials</p>
+                </div>
+                <div class="info-card">
+                    <span class="card-icon">📧</span>
+                    <p>Email address &amp; username</p>
+                </div>
+                <div class="info-card">
+                    <span class="card-icon">📊</span>
+                    <p>Usage &amp; app activity data</p>
+                </div>
+            </div>
+
+            <h3>Retention After Deletion</h3>
+            <p>
+                We will process deletion requests within <strong>30 days</strong>. Some data may be retained
+                for a limited period if required by law (e.g. financial transaction records for tax or legal compliance),
+                after which it will be permanently deleted or anonymized.
+            </p>
+
+            <div class="highlight-box">
+                🗑️ Once your account is deleted, this action is <strong>irreversible</strong>. All associated data will be permanently removed from our active systems.
+            </div>
+        </section>
+
+
+        <section class="doc-section" id="children">
+            <div class="section-eyebrow">Section 07</div>
+            <h2>Children's Privacy</h2>
+            <p>
+                Winso Wallet is available for users of all ages. We do not knowingly collect personal data
+                from children under the age of 13 without verifiable parental consent. If you believe your
+                child has provided personal information without your consent, please contact us immediately
+                so we can take appropriate action.
+            </p>
+        </section>
+
+        <!-- 8. Data Retention -->
+        <section class="doc-section" id="retention">
+            <div class="section-eyebrow">Section 08</div>
+            <h2>Data Retention</h2>
+            <p>
+                We retain your personal data only for as long as is necessary to fulfill the purposes
+                outlined in this policy, comply with applicable legal obligations, resolve disputes,
+                and enforce our agreements. When data is no longer required, it is securely deleted
+                or anonymized.
+            </p>
+        </section>
+
+        <!-- 9. User Rights -->
+        <section class="doc-section" id="rights">
+            <div class="section-eyebrow">Section 09</div>
+            <h2>User Rights</h2>
+            <p>You have the following rights with respect to your personal data:</p>
+            <div class="rights-row">
+                <div class="right-item"><span class="ri">🔍</span> Access personal data</div>
+                <div class="right-item"><span class="ri">✏️</span> Request correction</div>
+                <div class="right-item"><span class="ri">🗑️</span> Request deletion</div>
+                <div class="right-item"><span class="ri">↩️</span> Withdraw consent</div>
+            </div>
+            <p>To exercise any of these rights, please contact us at:</p>
+            <a class="contact-link" href="mailto:leeward192@gmail.com" id="contact-pp">
+                ✉️ leeward192@gmail.com
+            </a>
+        </section>
+
+        <!-- Google Play Data Safety Summary -->
+        <section class="doc-section" id="data-safety">
+            <div class="section-eyebrow">Google Play · Data Safety Summary</div>
+            <h2>Google Play Data Safety Declaration</h2>
+            <p>
+                The following is a summary of our data practices as declared in the
+                <strong>Google Play Data Safety section</strong>. This is consistent with the full policy above.
+            </p>
+
+            <h3>Data Collected</h3>
+            <div style="overflow-x:auto; margin: 16px 0;">
+                <table style="width:100%; border-collapse:collapse; font-size:13.5px;">
+                    <thead>
+                        <tr style="background:var(--bg); border-bottom:2px solid var(--rule);">
+                            <th style="text-align:left; padding:10px 14px; color:var(--ink); font-weight:500;">Data Type</th>
+                            <th style="text-align:left; padding:10px 14px; color:var(--ink); font-weight:500;">Collected</th>
+                            <th style="text-align:left; padding:10px 14px; color:var(--ink); font-weight:500;">Shared</th>
+                            <th style="text-align:left; padding:10px 14px; color:var(--ink); font-weight:500;">Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid var(--rule);">
+                            <td style="padding:10px 14px;">Email address</td>
+                            <td style="padding:10px 14px;">✅ Yes</td>
+                            <td style="padding:10px 14px;">❌ No</td>
+                            <td style="padding:10px 14px;">Account management</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--rule); background:var(--bg);">
+                            <td style="padding:10px 14px;">Username</td>
+                            <td style="padding:10px 14px;">✅ Yes</td>
+                            <td style="padding:10px 14px;">❌ No</td>
+                            <td style="padding:10px 14px;">Account management</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--rule);">
+                            <td style="padding:10px 14px;">Payment info</td>
+                            <td style="padding:10px 14px;">❌ No (handled by Google/Apple Pay)</td>
+                            <td style="padding:10px 14px;">❌ No</td>
+                            <td style="padding:10px 14px;">—</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--rule); background:var(--bg);">
+                            <td style="padding:10px 14px;">Device identifiers</td>
+                            <td style="padding:10px 14px;">✅ Yes</td>
+                            <td style="padding:10px 14px;">❌ No</td>
+                            <td style="padding:10px 14px;">App performance &amp; security</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--rule);">
+                            <td style="padding:10px 14px;">Crash logs</td>
+                            <td style="padding:10px 14px;">✅ Yes</td>
+                            <td style="padding:10px 14px;">⚠️ Firebase only</td>
+                            <td style="padding:10px 14px;">Bug fixing &amp; stability</td>
+                        </tr>
+                        <tr style="background:var(--bg);">
+                            <td style="padding:10px 14px;">Location data</td>
+                            <td style="padding:10px 14px;">❌ No</td>
+                            <td style="padding:10px 14px;">❌ No</td>
+                            <td style="padding:10px 14px;">—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Security Practices</h3>
+            <ul class="policy-list">
+                <li>Data is encrypted in transit using TLS</li>
+                <li>Users can request data deletion at any time</li>
+                <li>No data is sold to third parties</li>
+                <li>No advertising or tracking SDKs are used</li>
+            </ul>
+
+            <div class="highlight-box">
+                📋 This table reflects what is declared in our Google Play Data Safety form. If you notice any discrepancy, please contact us at <a href="mailto:leeward192@gmail.com">leeward192@gmail.com</a>.
+            </div>
+        </section>
+
+
+        <section class="doc-section" id="changes">
+            <div class="section-eyebrow">Section 10</div>
+            <h2>Changes to This Policy</h2>
+            <p>
+                We reserve the right to update or modify this Privacy Policy at any time. Users will be
+                notified of significant changes via in-app notifications or email prior to the changes
+                taking effect. Your continued use of Winso Wallet after changes are made constitutes
+                your acceptance of the updated policy.
+            </p>
+        </section>
+
+        <!-- 11. Contact -->
+        <section class="doc-section" id="contact">
+            <div class="section-eyebrow">Section 11</div>
+            <h2>Contact Us</h2>
+            <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please reach out:</p>
+            <a class="contact-link" href="mailto:leeward192@gmail.com">
+                ✉️ leeward192@gmail.com
+            </a>
+        </section>
+
+        <!-- ══ Terms & Conditions ══ -->
+        <div class="terms-header" id="terms">
+            <h2>Terms &amp; Conditions</h2>
+            <p>Last updated: May 25, 2026 · Winso Wallet v1.0</p>
+        </div>
+
+        <!-- T1. Acceptance -->
+        <section class="doc-section" id="acceptance">
+            <div class="section-eyebrow">Term 01</div>
+            <h2>Acceptance of Terms</h2>
+            <p>
+                By downloading, installing, or using Winso Wallet, you confirm that you have read,
+                understood, and agree to be bound by these Terms &amp; Conditions. If you do not
+                agree, please discontinue use of the application immediately.
+            </p>
+        </section>
+
+        <!-- T2. Responsibilities -->
+        <section class="doc-section" id="responsibilities">
+            <div class="section-eyebrow">Term 02</div>
+            <h2>User Responsibilities</h2>
+            <ul class="policy-list">
+                <li>Use the application solely for lawful purposes and in compliance with applicable laws</li>
+                <li>Refrain from attempting to harm, hack, reverse-engineer, or otherwise misuse the application</li>
+                <li>Keep your login credentials confidential and notify us immediately of any unauthorized access</li>
+            </ul>
+        </section>
+
+        <!-- T3. Payments -->
+        <section class="doc-section" id="payments">
+            <div class="section-eyebrow">Term 03</div>
+            <h2>Payments</h2>
+            <p>
+                All payments within Winso Wallet are processed securely by Google Pay and Apple Pay.
+                We are not responsible for failures, errors, or delays caused by third-party payment
+                providers. Payment disputes should be directed to the respective payment provider.
+            </p>
+        </section>
+
+        <!-- T4. Service Changes -->
+        <section class="doc-section" id="service-changes">
+            <div class="section-eyebrow">Term 04</div>
+            <h2>Service Changes</h2>
+            <p>
+                We reserve the right to modify, suspend, or discontinue any feature or aspect of
+                Winso Wallet at any time, with or without prior notice. We shall not be liable to
+                you or any third party for any such modifications.
+            </p>
+        </section>
+
+        <!-- T5. Liability -->
+        <section class="doc-section" id="liability">
+            <div class="section-eyebrow">Term 05</div>
+            <h2>Limitation of Liability</h2>
+            <p>
+                To the fullest extent permitted by applicable law, Winso Wallet and its affiliates,
+                officers, and employees shall not be liable for any indirect, incidental, special,
+                or consequential damages arising from your use of the application or any third-party
+                services integrated within it.
+            </p>
+            <div class="highlight-box">
+                Your use of Winso Wallet is at your sole risk. The app is provided on an "as is"
+                and "as available" basis without any warranties of any kind.
+            </div>
+        </section>
+
+    </main>
 </div>
+
+<!-- ── Footer ── -->
+<footer>
+    <p>© 2026 <strong>Winso Wallet</strong>. All rights reserved.</p>
+    <p style="margin-top:6px;">Questions? <a href="mailto:leeward192@gmail.com" style="color:rgba(255,255,255,.6);">leeward192@gmail.com</a></p>
+</footer>
+
+<script>
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id], div[id="terms"]');
+    const navLinks = document.querySelectorAll('nav a');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => {
+                    link.classList.toggle(
+                        'active',
+                        link.getAttribute('href') === '#' + entry.target.id
+                    );
+                });
+            }
+        });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+</script>
 
 </body>
 </html>
